@@ -1,4 +1,4 @@
-FROM alpine:3.12.4 as DOWNLOAD
+FROM alpine:3.12.4 as BUILDER
 
 RUN [ "apk", "add", "--no-cache", \
   "autoconf=2.69-r2", \
@@ -27,14 +27,14 @@ ARG CC=clang
 RUN [ "./autogen.sh" ]
 RUN [ "./configure" ]
 RUN [ "make" ]
-RUN [ "make", "check" ]
+# RUN [ "make", "check" ]
 RUN [ "make", "install" ]
 
 # ==============================================================================
 
-FROM alpine:3.12.4 as BUILDER
+FROM alpine:3.12.4 as SYSTEM
 LABEL author="fazenda"
 LABEL author="cobol"
 
-COPY --from=DOWNLOAD /usr/local/bin /usr/local/bin
-COPY --from=DOWNLOAD /usr/local/inclue /usr/local/inclue
+COPY --from=BUILDER /usr/local/bin /usr/local/bin
+COPY --from=BUILDER /usr/local/include /usr/local/include
