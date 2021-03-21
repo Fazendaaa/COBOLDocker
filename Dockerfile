@@ -45,3 +45,5 @@ COPY --from=BUILDER /usr/local/lib /usr/local/lib
 COPY --from=BUILDER /usr/local/bin /usr/local/bin
 COPY --from=BUILDER /usr/local/share /usr/local/share/
 COPY --from=BUILDER /usr/local/include /usr/local/include
+
+ENTRYPOINT [ "cobc" ]
