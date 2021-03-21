@@ -22,7 +22,7 @@ II. Then just run the following:
 cobc --help
 ```
 
-III. The following hould be printed in your terminal:
+III. The following should be printed in your terminal:
 
 ```shell
 GnuCOBOL compiler for most COBOL dialects with lots of extensions
