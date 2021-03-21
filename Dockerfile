@@ -36,5 +36,12 @@ FROM alpine:3.12.4 as SYSTEM
 LABEL author="fazenda"
 LABEL author="cobol"
 
+RUN [ "apk", "add", "--no-cache", \
+  "db-dev=5.3.28-r1", \
+  "gmp-dev=6.2.0-r0" \
+]
+
+COPY --from=BUILDER /usr/local/lib /usr/local/lib
 COPY --from=BUILDER /usr/local/bin /usr/local/bin
+COPY --from=BUILDER /usr/local/share /usr/local/share/
 COPY --from=BUILDER /usr/local/include /usr/local/include
