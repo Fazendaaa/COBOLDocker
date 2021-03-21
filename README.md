@@ -13,7 +13,7 @@ Just install Docker
 I. Add the following to any shell script configuration file -- like `.bashrc`, `.zshrc` or alike:
 
 ```shell
-alias cboc='docker run --rm --volume $(pwd):/usr/src --workdir /usr/src fazenda/cobol'
+alias cobc='docker run --rm --volume $(pwd):/usr/src --workdir /usr/src fazenda/cobol'
 ```
 
 II. Then just run the following:
